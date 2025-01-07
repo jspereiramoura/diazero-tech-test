@@ -14,8 +14,11 @@ const Modal = ({ title, children }: ModalProps) => {
     <div className={styles.modalOverlay}>
       <section className={styles.modalContent}>
         <header className={styles.modalHeader}>
-          <h2>{title}</h2>
-          <button className={styles.closeButton} onClick={handleCloseModal}>
+          <h2 className={styles.modalTitle}>{title}</h2>
+          <button
+            className={styles.modalCloseButton}
+            onClick={handleCloseModal}
+          >
             <CloseIcon width={24} height={24} />
           </button>
         </header>
