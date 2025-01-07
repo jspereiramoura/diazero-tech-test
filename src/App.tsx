@@ -1,9 +1,9 @@
-import Logo from "@assets/logo.svg?react";
+import Header from "./layouts/Header";
 
 function App() {
   return (
     <>
-      <Logo />
+      <Header />
     </>
   );
 }
