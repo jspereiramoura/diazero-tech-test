@@ -9,6 +9,6 @@ export type Ticket = {
   title: string;
   status: TicketStatus;
   createdBy: string;
-  createdAt: Date;
+  createdAt: Date | string;
   description: string;
 };

@@ -1,0 +1,9 @@
+.row {
+  background-color: #fff;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #f9f9f9;
+  }
+}
