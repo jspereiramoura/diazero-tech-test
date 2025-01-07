@@ -1,0 +1,44 @@
+.modalOverlay {
+  width: 100vw;
+  height: 100vh;
+
+  inset: 0;
+  position: fixed;
+  z-index: $z-overlay;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modalContent {
+  padding: 1rem;
+  width: 100vw;
+  background: #fff;
+  border-radius: 8px 8px 0 0;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.closeButton {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: $screen-tablet) {
+  .modalOverlay {
+    align-items: center;
+  }
+
+  .modalContent {
+    max-width: 500px;
+    border-radius: 8px;
+    padding: 1rem 2rem 2rem;
+  }
+}
