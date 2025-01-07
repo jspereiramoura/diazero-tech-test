@@ -7,7 +7,7 @@ import { useModal } from "../../hooks/useModal";
 import TicketsTableModal from "./components/Modal/TicketsTableModal";
 import TicketsTableFilter from "./components/Filter/TicketsTableFilter";
 import { useEffect, useState } from "react";
-import { TicketStatus } from "../../types/Ticket";
+import { Ticket, TicketStatus } from "../../types/Ticket";
 
 const TicketsTable = () => {
   const { handleOpenModal } = useModal();
@@ -16,8 +16,13 @@ const TicketsTable = () => {
   const [filterValue, setFilterValue] = useState("Todos");
   const [filteredTickets, setFilteredTickets] = useState(tickets);
 
+  const getFilteredTickets = (tickets: Ticket[], filterStatus: string) =>
+    filterStatus === "Todos"
+      ? tickets
+      : tickets.filter(ticket => ticket.status === filterStatus);
+
   useEffect(() => {
-    setFilteredTickets(tickets);
+    setFilteredTickets(getFilteredTickets(tickets, filterValue));
   }, [tickets]);
 
   return (
@@ -28,9 +33,7 @@ const TicketsTable = () => {
         onFilterChange={value => {
           setFilterValue(value);
           setFilteredTickets(
-            value === "Todos"
-              ? tickets
-              : tickets.filter(ticket => ticket.status === value)
+            getFilteredTickets(tickets, value as keyof typeof TicketStatus)
           );
         }}
         filterValues={["Todos", ...Object.values(TicketStatus)]}
