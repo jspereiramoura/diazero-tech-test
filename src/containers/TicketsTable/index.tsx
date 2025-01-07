@@ -6,7 +6,7 @@ import TicketsTableRow from "./components/Row/TicketsTableRow";
 import { useModal } from "../../hooks/useModal";
 import TicketsTableModal from "./components/Modal/TicketsTableModal";
 import TicketsTableFilter from "./components/Filter/TicketsTableFilter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TicketStatus } from "../../types/Ticket";
 
 const TicketsTable = () => {
@@ -15,6 +15,10 @@ const TicketsTable = () => {
 
   const [filterValue, setFilterValue] = useState("Todos");
   const [filteredTickets, setFilteredTickets] = useState(tickets);
+
+  useEffect(() => {
+    setFilteredTickets(tickets);
+  }, [tickets]);
 
   return (
     <div className={styles.tickets}>
