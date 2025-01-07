@@ -94,39 +94,37 @@ const TicketsTableModal = ({ ticketId }: TicketsTableModalProps) => {
           />
         </label>
       </div>
-      {ticket.comments && (
-        <>
-          <div className={styles.modalComments}>
-            <h2>Comentários</h2>
-            <div className={styles.modalAddComment}>
-              <textarea
-                ref={commentInputRef}
-                name="comment"
-                placeholder="Adicionar comentário"
-                className={styles.modalTextarea}
-              />
-              <button
-                className={styles.modalAddCommentButton}
-                onClick={handlerAddComment}
-              >
-                Adicionar
-              </button>
-            </div>
-            <ul className={styles.modalCommentsList}>
-              {ticket.comments.map((comment, index) => (
-                <li className={styles.modalCommentsWrapper} key={index}>
-                  <span className={styles.modalCommentsText}>
-                    {comment.text}
-                  </span>
-                  <span className={styles.modalCommentsAuthor}>
-                    {comment.author}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </>
-      )}
+
+      <div className={styles.modalComments}>
+        <h2>Comentários</h2>
+        <div className={styles.modalAddComment}>
+          <textarea
+            ref={commentInputRef}
+            name="comment"
+            placeholder="Adicionar comentário"
+            className={styles.modalTextarea}
+          />
+          <button
+            className={styles.modalAddCommentButton}
+            onClick={handlerAddComment}
+          >
+            Adicionar
+          </button>
+        </div>
+        {ticket.comments && (
+          <ul className={styles.modalCommentsList}>
+            {ticket.comments.map((comment, index) => (
+              <li className={styles.modalCommentsWrapper} key={index}>
+                <span className={styles.modalCommentsText}>{comment.text}</span>
+                <span className={styles.modalCommentsAuthor}>
+                  {comment.author}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
       <button className={styles.modalSaveButton} onClick={handleSave}>
         Salvar
       </button>
