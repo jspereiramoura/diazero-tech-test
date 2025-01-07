@@ -5,14 +5,32 @@ import { RootState } from "../../data/store";
 import TicketsTableRow from "./components/Row/TicketsTableRow";
 import { useModal } from "../../hooks/useModal";
 import TicketsTableModal from "./components/Modal/TicketsTableModal";
+import TicketsTableFilter from "./components/Filter/TicketsTableFilter";
+import { useState } from "react";
+import { TicketStatus } from "../../types/Ticket";
 
 const TicketsTable = () => {
   const { handleOpenModal } = useModal();
   const { tickets } = useSelector((state: RootState) => state);
 
+  const [filterValue, setFilterValue] = useState("Todos");
+  const [filteredTickets, setFilteredTickets] = useState(tickets);
+
   return (
     <div className={styles.tickets}>
       <h1 className={styles.ticketsTitle}>Tickets Table</h1>
+      <TicketsTableFilter
+        selectedValue={filterValue}
+        onFilterChange={value => {
+          setFilterValue(value);
+          setFilteredTickets(
+            value === "Todos"
+              ? tickets
+              : tickets.filter(ticket => ticket.status === value)
+          );
+        }}
+        filterValues={["Todos", ...Object.values(TicketStatus)]}
+      />
       <table className={styles.ticketsTable}>
         <thead className={styles.ticketsHead}>
           <tr>
@@ -22,7 +40,7 @@ const TicketsTable = () => {
           </tr>
         </thead>
         <tbody className={styles.ticketsBody}>
-          {tickets.map(ticket => (
+          {filteredTickets.map(ticket => (
             <TicketsTableRow
               key={ticket.id}
               ticket={ticket}
