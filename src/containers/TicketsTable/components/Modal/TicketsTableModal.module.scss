@@ -1,0 +1,38 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.modal__label {
+  font-weight: bold;
+}
+
+.modal__input,
+.modal__select,
+.modal__textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal__textarea {
+  resize: vertical;
+}
+
+.modal__save-button {
+  display: block;
+  width: 100%;
+  height: 40px;
+  font-weight: bold;
+  background: #4caf50;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+
+  &:hover {
+    background: #45a049;
+  }
+}

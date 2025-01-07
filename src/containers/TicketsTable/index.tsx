@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import withModal from "../../contexts/ModalContext/withModal";
-
 import styles from "./TicketsTable.module.scss";
 import { RootState } from "../../data/store";
 import TicketsTableRow from "./components/Row/TicketsTableRow";
 import { useModal } from "../../hooks/useModal";
+import TicketsTableModal from "./components/Modal/TicketsTableModal";
 
 const TicketsTable = () => {
   const { handleOpenModal } = useModal();
@@ -27,7 +27,7 @@ const TicketsTable = () => {
               key={ticket.id}
               ticket={ticket}
               onTicketClick={() => {
-                handleOpenModal("ticket");
+                handleOpenModal(<TicketsTableModal ticketId={ticket.id} />);
               }}
             />
           ))}
