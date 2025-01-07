@@ -1,9 +1,9 @@
 @forward "./reset.scss";
 
 :root {
-	font-family: "Montserrat", serif;
 	max-width: 100vw;
 	overflow-x: hidden;
+	font-family: $font-ubuntu;
 }
 
 * {
@@ -21,6 +21,7 @@ a {
 		text-decoration: none;
 	}
 }
+
 button {
 	color: inherit;
 	font-weight: inherit;
