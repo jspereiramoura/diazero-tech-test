@@ -10,7 +10,23 @@ export const ticketsMock: Ticket[] = [
     createdBy: "Jane Smith",
     createdAt: mockedDate,
     description:
-      "Implement search functionality to allow users to search for tickets."
+      "Implement search functionality to allow users to search for tickets.",
+    comments: [
+      { author: "John Doe", text: "This is a comment" },
+      { author: "Paul Carmen", text: "This is another comment" },
+      { author: "John Doe", text: "This is a comment" },
+      { author: "Paul Carmen", text: "This is another comment" },
+      { author: "John Doe", text: "This is a comment" },
+      { author: "Paul Carmen", text: "This is another comment" },
+      { author: "John Doe", text: "This is a comment" },
+      { author: "Paul Carmen", text: "This is another comment" },
+      { author: "John Doe", text: "This is a comment" },
+      { author: "Paul Carmen", text: "This is another comment" },
+      { author: "John Doe", text: "This is a comment" },
+      { author: "Paul Carmen", text: "This is another comment" },
+      { author: "John Doe", text: "This is a comment" },
+      { author: "Paul Carmen", text: "This is another comment" }
+    ]
   },
   {
     id: 2,

@@ -1,7 +1,72 @@
 .modal {
+  gap: 24px;
   display: flex;
   flex-direction: column;
+  padding-bottom: 48px;
+  overflow-y: auto;
+}
+
+.modal__form {
   gap: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__comments {
+  width: 100%;
+  height: fit-content;
+
+  h2 {
+    margin-bottom: 24px;
+  }
+}
+
+.modal__add-comment {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  button,
+  textarea {
+    height: 40px;
+  }
+
+  textarea {
+    margin: unset;
+  }
+
+  button {
+    padding: 0 0.5rem;
+    border-radius: 4px;
+  }
+}
+
+.modal__comments__list {
+  gap: 4px;
+  display: flex;
+  overflow-y: auto;
+  max-height: 200px;
+  flex-direction: column;
+}
+
+.modal__comments__wrapper {
+  gap: 4px;
+  display: flex;
+  padding: 0.5rem;
+  border-radius: 4px;
+  flex-direction: column;
+  border: 1px solid #ccc;
+}
+
+.modal__comments__text {
+  font-size: 0.8rem;
+}
+
+.modal__comments__author {
+  font-size: 0.7rem;
+  font-weight: bold;
+  align-self: flex-end;
 }
 
 .modal__label {
@@ -23,16 +88,33 @@
 }
 
 .modal__save-button {
-  display: block;
-  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
   height: 40px;
-  font-weight: bold;
+  width: 100%;
+}
+
+.modal__save-button,
+.modal__add-comment button {
   background: #4caf50;
+  font-weight: bold;
   color: #fff;
   cursor: pointer;
-  border-radius: 4px;
 
   &:hover {
     background: #45a049;
+  }
+}
+
+@media screen and (min-width: $screen-tablet) {
+  .modal {
+    position: relative;
+    flex-direction: row;
+  }
+
+  .modal__save-button {
+    // position: relative;
+    border-radius: 4px;
   }
 }

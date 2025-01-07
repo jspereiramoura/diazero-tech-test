@@ -26,10 +26,27 @@ const ticketSlice = createSlice({
       const { id, status } = action.payload;
       const ticketIndex = state.findIndex(ticket => ticket.id === id);
       state[ticketIndex].status = status;
+    },
+    addTicketComment: (
+      state,
+      action: PayloadAction<{
+        ticketId: Ticket["id"];
+        comment: { author: string; text: string };
+      }>
+    ) => {
+      const { ticketId, comment } = action.payload;
+      const ticketIndex = state.findIndex(ticket => ticket.id === ticketId);
+      state[ticketIndex].comments ??= [];
+      state[ticketIndex].comments.unshift(comment);
     }
   }
 });
 
-export const { addNewTicket, removeTicket, updateTicket, updateTicketStatus } =
-  ticketSlice.actions;
+export const {
+  addNewTicket,
+  addTicketComment,
+  removeTicket,
+  updateTicket,
+  updateTicketStatus
+} = ticketSlice.actions;
 export default ticketSlice.reducer;

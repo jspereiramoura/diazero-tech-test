@@ -11,4 +11,5 @@ export type Ticket = {
   createdBy: string;
   createdAt: Date | string;
   description: string;
+  comments?: { author: string; text: string }[];
 };
